@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcia Ribeiro Confeccoes - Moda e Acessórios</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d63384; /* Rosa vibrante */
+            --secondary-color: #6c757d;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 76px; /* Altura da navbar fixa */
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #b02a6e;
+            border-color: #b02a6e;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Sobre Section */
+        .sobre-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+
+        .sobre-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+            height: 100%;
+        }
+
+        .info-card h5 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .info-card ul li strong {
+            color: var(--secondary-color);
+        }
+
+        /* Produtos Section */
+        .produtos-section {
+            padding: 80px 0;
+        }
+
+        .produtos-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 50px;
+        }
+
+        .card-produto {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-produto img {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .card-produto .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-produto .card-title {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Contato Section */
+        .contato-section {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .contato-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .contato-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contato-info i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .contato-info p {
+            margin: 0;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1a1a1a;
+            color: #adb5bd;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #343a40;
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Política de Privacidade Modal */
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-body {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Marcia Ribeiro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produtos">Coleção</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Moda com Alma</h1>
+            <p>Descubra a elegância e o conforto em cada peça. Do clássico ao contemporâneo.</p>
+            <a href="#produtos" class="btn btn-primary-custom btn-lg">Ver Coleção</a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="sobre-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Sobre a Empresa</h2>
+                <p class="lead">Tradição e estilo desde 1991</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <h5><i class="bi bi-building me-2"></i>Dados Cadastrais</h5>
+                        <ul>
+                            <li><strong>Razão Social:</strong> Marcia Ribeiro Confeccoes LTDA</li>
+                            <li><strong>CNPJ:</strong> 36.766.012/0001-79</li>
+                            <li><strong>Data de Abertura:</strong> 27/08/1991</li>
+                            <li><strong>Porte:</strong> Micro Empresa</li>
+                            <li><strong>Natureza Jurídica:</strong> Sociedade Empresária Limitada</li>
+                            <li><strong>Situação:</strong> <span class="badge bg-success">Ativa</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-card">
+                        <h5><i class="bi bi-geo-alt me-2"></i>Localização e Contato</h5>
+                        <ul>
+                            <li><strong>Endereço:</strong> SHC Norte CL QD 116 BL G Loja 03, Térreo</li>
+                            <li><strong>Bairro:</strong> Asa Norte</li>
+                            <li><strong>CEP:</strong> 70310-500</li>
+                            <li><strong>Município:</strong> Brasília - DF</li>
+                            <li><strong>Atividade Principal:</strong> 47.81-4-00 - Comércio varejista de artigos do vestuário e acessórios</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 mt-4">
+                    <div class="info-card">
+                        <h5><i class="bi bi-people me-2"></i>Quadro de Sócios e Administradores</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Adriana Raimunda Ribeiro</strong> - Sócio</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Marcia Ribeiro</strong> - Sócio-Administrador</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="produtos-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Nossa Coleção</h2>
+                <p class="lead">Peças selecionadas para realçar seu estilo único</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-produto">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vestidos">
+                        <div class="card-body">
+                            <h5 class="card-title">Vestidos</h5>
+                            <p class="card-text">Elegância e conforto para todas as ocasiões.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-produto">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camisetas e Blusas">
+                        <div class="card-body">
+                            <h5 class="card-title">Camisetas e Blusas</h5>
+                            <p class="card-text">Estilo casual e moderno para o dia a dia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-produto">
+                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Acessórios">
+                        <div class="card-body">
+                            <h5 class="card-title">Acessórios</h5>
+                            <p class="card-text">Bolsa, cintos e joias para completar seu look.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contato-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>Entre em Contato</h2>
+                    <p class="mb-4">Venha nos visitar ou entre em contato para saber mais sobre nossas peças.</p>
+                    <div class="contato-info">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <p>SHC Norte CL QD 116 BL G Loja 03, Térreo<br>Asa Norte, Brasília - DF, 70310-500</p>
+                    </div>
+                    <div class="contato-info">
+                        <i class="bi bi-envelope-fill"></i>
+                        <p>contato@marciaribeiro.com.br</p>
+                    </div>
+                    <div class="contato-info">
+                        <i class="bi bi-clock-fill"></i>
+                        <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Mapa placeholder - poderia ser incorporado um iframe do Google Maps -->
+                    <div class="ratio ratio-4x3 bg-secondary rounded">
+                        <div class="d-flex align-items-center justify-content-center text-white">
+                            <i class="bi bi-map fs-1 me-2"></i> Mapa da Loja
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Marcia Ribeiro Confeccoes</h5>
+                    <p>Comércio varejista de artigos do vestuário e acessórios. Tradição e qualidade desde 1991.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#produtos">Coleção</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Informações Legais</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>CNPJ:</strong> 36.766.012/0001-79</li>
+                        <li><strong>Razão Social:</strong> Marcia Ribeiro Confeccoes LTDA</li>
+                        <li><strong>Endereço:</strong> SHC Norte CL QD 116 BL G Loja 03, Térreo - Asa Norte, Brasília - DF</li>
+                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#politicaPrivacidadeModal">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Marcia Ribeiro Confeccoes LTDA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Política de Privacidade -->
+    <div class="modal fade" id="politicaPrivacidadeModal" tabindex="-1" aria-labelledby="politicaPrivacidadeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="politicaPrivacidadeModalLabel">Política de Privacidade</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Última atualização:</strong> 02 de outubro de 2026</p>
+                    <p>A <strong>Marcia Ribeiro Confeccoes LTDA</strong>, inscrita no CNPJ 36.766.012/0001-79, valoriza a privacidade e a segurança dos dados de seus clientes. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais.</p>
+                    
+                    <h6>1. Coleta de Informações</h6>
+                    <p>Coletamos informações que você nos fornece voluntariamente, como nome, e-mail, telefone e endereço, ao entrar em contato conosco ou realizar uma compra em nossa loja física.</p>
+                    
+                    <h6>2. Uso das Informações</h6>
+                    <p>Utilizamos suas informações para:</p>
+                    <ul>
+                        <li>Processar e entregar pedidos;</li>
+                        <li>Melhorar nosso atendimento e produtos;</li>
+                        <li>Enviar comunicações promocionais (com seu consentimento);</li>
+                        <li>Cumprir obrigações legais.</li>
+                    </ul>
+                    
+                    <h6>3. Compartilhamento de Dados</h6>
+                    <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando necessário para processar pagamentos, entregar pedidos ou cumprir exigências legais.</p>
+                    
+                    <h6>4. Segurança dos Dados</h6>
+                    <p>Adotamos medidas de segurança técnicas e administrativas para proteger suas informações contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+                    
+                    <h6>5. Seus Direitos</h6>
+                    <p>Você tem o direito de acessar, corrigir ou solicitar a exclusão de seus dados pessoais. Para exercer esses direitos, entre em contato conosco pelo e-mail contato@marciaribeiro.com.br.</p>
+                    
+                    <h6>6. Cookies</h6>
+                    <p>Nosso site pode utilizar cookies para melhorar sua experiência de navegação. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade do site.</p>
+                    
+                    <h6>7. Alterações nesta Política</h6>
+                    <p>Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento. Recomendamos que você revise periodicamente esta página.</p>
+                    
+                    <h6>8. Contato</h6>
+                    <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato:</p>
+                    <p>
+                        <strong>Marcia Ribeiro Confeccoes LTDA</strong><br>
+                        CNPJ: 36.766.012/0001-79<br>
+                        Endereço: SHC Norte CL QD 116 BL G Loja 03, Térreo - Asa Norte, Brasília - DF, 70310-500<br>
+                        E-mail: contato@marciaribeiro.com.br
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
